@@ -3,9 +3,17 @@ package Seasons;
 public class Person {
 	
 	boolean isFemale;
+	// birthdays are 2 
 	short birthday;
 	short age;
-	short production = 5;
+
+	
+	public Person(boolean isFemale, short birthday, short age) {
+		super();
+		this.isFemale = isFemale;
+		this.birthday = birthday;
+		this.age = age;
+	}
 	
 	public boolean isFemale() {
 		return isFemale;
@@ -19,11 +27,12 @@ public class Person {
 	public void setAge(short age) {
 		this.age = age;
 	}
-	public short getProduction() {
-		return production;
-	}
-	public void setProduction(short production) {
-		this.production = production;
+	
+	public short getBirthday() {
+		return birthday;
+	}	
+	public void setBirthday(short birthday) {
+		this.birthday = birthday;
 	}
 	
 

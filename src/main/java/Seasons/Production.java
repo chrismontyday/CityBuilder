@@ -1,98 +1,47 @@
 package Seasons;
 
-import java.util.Scanner;
+import java.util.List;
 
 public class Production {
 	
-	
-	Person person = new Person();
-	
-	
-	public static void main(String args[]) {
+
+	public long addUpProduction(List<Person> pop) {
+
+		long totalProduction = 0;
 		
-		Scanner input = new Scanner(System.in);
-		System.out.println("What is the name of your humble city?");
-		String cityName = input.nextLine();
-		
-		startGame(cityName);
-		
-		
-        }
-	
-	public static void startGame(String cityName) {
-		long turnTally = 1;
-		Months month = new Months(1);
-		//List(person) population = new ArrayList()<>;
+		for(int i = 0; i < pop.size(); i++) {
 			
-		while (true) {
+			long production;
+			short age = pop.get(i).getAge();
+			boolean isFemale = pop.get(i).isFemale();
 			
-			int monthNumber = month.getNumberOfMonths();
-			int yearNumber = month.getNumberOfYears();
 			
-			if(turnTally == month.getTotalNumberOfMonths()) {				
-				System.out.println("It is " + printDate(monthNumber,yearNumber) + " in the fair city of " + cityName);
-			turnTally++;
+			if(isFemale == true && age >=15) {
+				production = 3;
+			} else if (isFemale == false && age >=15) {
+				production = 5;
+			} else if (age < 15 && age >=10){
+				production = 1;
+			} else if (age < 10 && age >= 4) {
+				production = 0;
+			} else if (age == 3) {
+				production = -1;
+			} else if (age == 2) {
+				production = -2;
+			} else if (age <= 1) {
+				production = -3; 
+			} else {
+				production = 1;
 			}
 			
-			
+			totalProduction += production;
 		}
 		
-		
+		return totalProduction;
 	}
 	
 	
 	
-	  public static String printDate(int numMonth, int numYear) {
-		  
-	    	int numberOfMonths = numMonth;
-	    	int numberOfYears = numYear;
-	    	String month = "";
-	    	String year = "";
-	    	
-	    	if(numberOfMonths == 1) {
-	    		month = "January";
-	    	} else if(numberOfMonths == 2) {
-	    		month = "February";
-	    	} else if(numberOfMonths == 3) {
-	    		month = "March";
-	    	} else if(numberOfMonths == 4) {
-	    		month = "April";
-	    	} else if(numberOfMonths == 5) {
-	    		month = "May";
-	    	} else if(numberOfMonths == 6) {
-	    		month = "June";
-	    	} else if(numberOfMonths == 7) {
-	    		month = "July";
-	    	} else if(numberOfMonths == 8) {
-	    		month = "August";
-	    	} else if(numberOfMonths == 9) {
-	    		month = "September";
-	    	} else if(numberOfMonths == 10) {
-	    		month = "October";
-	    	} else if(numberOfMonths == 11) {
-	    		month = "November";
-	    	} else if(numberOfMonths == 12) {
-	    		month = "December";
-	    	} 
-	    	
-	    	if(numberOfYears == 1) {
-	    		year = "1st";
-	    	} else if(numberOfYears == 2) {
-	    		year = "2nd";
-	    	} else if(numberOfYears == 3) {
-	    		year = "3rd";
-	    	} else if(numberOfYears == 4) {
-	    		year = "4th";
-	    	} else if(numberOfYears == 5) {
-	    		year = "5th";
-	    	} else if(numberOfYears == 6) {
-	    		year = "6th";
-	    	} else{
-	    		year = numberOfYears + "th";
-	    	}  
-	    		
-	    	
-	    	 return month + " of the " + year + " year";
-	    }
+	 
 
 }
