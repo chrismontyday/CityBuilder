@@ -29,23 +29,22 @@ public class Time {
 	    	
 	    	//runs entire game
 	        public void run() {
-	        	Production production = new Production();
 	        	
 	        	month.updateTime();
+	        	
 	        	Population age = new Population();
 	        	age.ageOnBirthday(population, (short)month.getNumberOfMonths());
 	        	
 	        	
+	        	Production production = new Production();
 	        	long monthlyProduction = production.addUpProduction(population);
 	        	age.newBaby(population, food, monthlyProduction);
 	        	int popSize = population.size();
 	        	
-	        	Food adjustFood = new Food();
 	        	
+	        	Food adjustFood = new Food();
 	        	food += adjustFood.addToFood(monthlyProduction, month.getNumberOfMonths());
 	        	food -= adjustFood.eatFood(population);
-	        	
-	        	
 	        	
 	        	
 	        	council.generalUpdate(cityName, monthlyProduction, popSize, food);

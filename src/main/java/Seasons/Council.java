@@ -6,6 +6,7 @@ import java.util.Scanner;
 public class Council {
 	
 	Months month;
+	Construction build;
 	
 	public String startGame() {
 		
@@ -15,6 +16,21 @@ public class Council {
 		String cityName = input.nextLine();
 		
 		return cityName;
+		
+	}
+	
+	public void listenToCommand() {
+		
+		
+		Scanner input = new Scanner(System.in);
+		String command = input.nextLine();
+		
+		if(command.contains("build")) {
+			if(command.contains("small farm")) {
+				build.newBuilding(5, 1);
+			}
+		}
+	
 		
 	}
 	
