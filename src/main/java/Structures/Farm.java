@@ -1,14 +1,15 @@
 package Structures;
 
-public class SmallFarm extends Building  {
-
+public class Farm extends Building {
+	
 	private int bounty = 400;
 	private short foodType;
 	
-	public SmallFarm(int cost, int maintain, int bounty) {
+	public Farm(int cost, int maintain, int bounty) {
 		this.cost = cost;
 		this.maintenence = maintain;
 		this.bounty = bounty;
+		
 	}
 	public short getFoodType() {
 		return foodType;
@@ -24,7 +25,6 @@ public class SmallFarm extends Building  {
 	public void setBounty(int bounty) {
 		this.bounty = bounty;
 	}
-	
 	
 	
 	

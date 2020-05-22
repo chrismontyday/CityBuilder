@@ -5,6 +5,9 @@ import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import Structures.Building;
+import Structures.Farm;
+
 
 public class Time {
 	
@@ -17,6 +20,7 @@ public class Time {
 	Timer timer;
 	
 	static List<Person> population = new ArrayList<Person>();
+	static List<Farm> farms = new ArrayList<Farm>();
 	static Council council = new Council();
 	
 	 public Time(int seconds) {
@@ -42,8 +46,9 @@ public class Time {
 	        	int popSize = population.size();
 	        	
 	        	
+	        	
 	        	Food adjustFood = new Food();
-	        	food += adjustFood.addToFood(monthlyProduction, month.getNumberOfMonths());
+	        	food += adjustFood.addToFood(farms, month.getNumberOfMonths());
 	        	food -= adjustFood.eatFood(population);
 	        	
 	        	
@@ -64,6 +69,9 @@ public class Time {
 	    	
 	    	Population newPop = new Population();
 	    	population = newPop.startingPopulation(startingPopNumber);
+	    	
+	    	Construction newCity = new Construction();
+	    	farms = newCity.startingBuildings();
 	    	
 	    	Time newTimer = new Time(lengthOfMonth);
 	    	

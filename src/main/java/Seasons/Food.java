@@ -2,16 +2,25 @@ package Seasons;
 
 import java.util.List;
 
+import Structures.Building;
+import Structures.Farm;
+import Structures.SmallFarm;
+
 public class Food {
 
 	
 	long food;
 	
-	public long addToFood(long production, int month) {
-		if(month >= 4 && month <=10) {
-			return food += production*2;
-		} else
-			return 0;	
+ long addToFood(List<Farm> farms, int month) {
+		
+		//long food = 0;
+		
+		for(int i = 0; i<farms.size(); i++) {
+		
+				food += farms.get(i).getBounty();
+			
+		}
+		return food;
 		
 	}
 	
@@ -20,7 +29,7 @@ public class Food {
 		
 		for(int i = 0; i<pop.size(); i++) {
 			if(pop.get(i).getAge()>=20) {
-				foodConsumption += 2;
+				foodConsumption += 10;
 			} else
 				foodConsumption++;
 			
