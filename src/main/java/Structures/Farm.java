@@ -1,14 +1,17 @@
 package Structures;
 
-public class Farm extends Building {
+import Resources.Food;
+
+public class Farm extends Building implements Structures {
 	
-	private int bounty = 400;
+	private long bounty;
 	private short foodType;
 	
-	public Farm(int cost, int maintain, int bounty) {
-		this.cost = cost;
-		this.maintenence = maintain;
-		this.bounty = bounty;
+	public Farm() {
+		this.type = "farm";
+		this.cost = 150;
+		this.maintenence = 15;
+		this.bounty = 400;
 		
 	}
 	public short getFoodType() {
@@ -18,12 +21,17 @@ public class Farm extends Building {
 		this.foodType = foodType;
 	}
 
-	public int getBounty() {
+	public long getBounty() {
 		return bounty;
 	}
 
-	public void setBounty(int bounty) {
+	public void setBounty(long bounty) {
 		this.bounty = bounty;
+	}
+
+	public int returnMaintenence() {
+
+		return this.maintenence;
 	}
 	
 	

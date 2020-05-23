@@ -4,6 +4,7 @@ abstract public class Building {
 
 	protected int cost;
 	protected int maintenence;
+	protected String type;
 	
 	
 	public Building() {

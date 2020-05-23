@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import Resources.Food;
+
 public class Population {
 	
 	
@@ -25,6 +27,17 @@ public class Population {
 		
 		return pop;
 		
+	}
+	
+	public long populationFoodConsumption(List<Person> pop, Food food) {
+		
+		long leftovers = food.getValue();
+		
+		for(Person person : pop) {
+			leftovers -= person.getFoodConsumption();
+		}
+		
+		return leftovers;
 	}
 	
 	//updates age of individual person based on their birth month
@@ -66,7 +79,7 @@ public class Population {
 	}
 	
 	//adds a new baby to the population
-	public void newBaby(List<Person> pop, long food, long production) {
+	public void newBaby(List<Person> pop, Food food, long production) {
 		
 		int women = 0;
 		int child = 0;
@@ -82,7 +95,7 @@ public class Population {
 		
 		if(women-child>0) {
 		
-		if(food - ((long) pop.size()*12) > 0 && production > 0) {
+		if(food.getValue() - ((long) pop.size()*2) > 0 && production > 0) {
 			Person person = newBaby();
 			pop.add(person);
 		}

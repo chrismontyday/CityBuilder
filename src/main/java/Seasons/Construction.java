@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import Resources.Food;
 import Structures.Building;
 import Structures.Farm;
-import Structures.SmallFarm;
 
 public class Construction {
 
@@ -17,7 +17,7 @@ public class Construction {
 		
 		for (int i = 0; i<4; i++) {
 			
-			Farm farm = new Farm(400, 15, 400);
+			Farm farm = new Farm();
 			
 			firstBuildings.add(farm);
 		}

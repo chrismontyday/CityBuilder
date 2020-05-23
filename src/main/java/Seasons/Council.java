@@ -25,18 +25,14 @@ public class Council {
 		Scanner input = new Scanner(System.in);
 		String command = input.nextLine();
 		
-		if(command.contains("build")) {
-			if(command.contains("small farm")) {
-				build.newBuilding(5, 1);
-			}
-		}
+	
 	
 		
 	}
 	
 	//prints out monthly update
 	public void generalUpdate(String cityName, Long production, Integer pop, long food) {
-		System.out.println("You have " + production + " production from " + pop + " population and "
+		System.out.println("You have " + production + " leftover production from " + pop + " population and "
 				+ food + " food in your granaries "
 				+ "in " + month.printDate() + " in the humble city of " + cityName);
 	}
